@@ -1,6 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
-import useRouter from "./routes/user.route.js";
+import userRouter from "./routes/user.route.js";
+import authRouter from "./routes/auth.route.js";
+
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -14,6 +16,7 @@ mongoose
   });
 
 const app = express();
+app.use(express.json());
 
 // thats how the server runs using a api folder and then puting it in root directory and also then changing the package.json and istalling nodemon
 
@@ -21,4 +24,5 @@ app.listen(3000, () => {
   console.log("Server on port 3000!!");
 });
 
-app.use("/api/user", useRouter);
+app.use("/api/user", userRouter);
+app.use("/api/auth", authRouter);
