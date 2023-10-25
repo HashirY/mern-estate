@@ -30,7 +30,6 @@ const CreateList = () => {
     furnished: false,
   });
   const [imageUploadError, setImageUploadError] = useState(false);
-  console.log(formData);
   const [uploading, setUploading] = useState(false);
 
   const storeImage = async (file) => {
